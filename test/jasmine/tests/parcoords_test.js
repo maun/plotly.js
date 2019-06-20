@@ -1308,7 +1308,7 @@ describe('parcoords constraint interactions', function() {
     }
 
     var initialSnapDuration;
-    var shortenedSnapDuration = 20;
+    var shortenedSnapDuration = 0;
     var snapDelay = 100;
     var noSnapDelay = 20;
     beforeAll(function() {
@@ -1364,7 +1364,7 @@ describe('parcoords constraint interactions', function() {
         expect(dashArray.length).toBe(segmentCount, dashArray);
     }
 
-    it('@noCI @gl snaps ordinal constraints', function(done) {
+    it('@gl snaps ordinal constraints', function(done) {
         // first: drag almost to 2 but not quite - constraint will snap back to [2.75, 4]
         mostOfDrag(105, 165, 105, 190);
         var newDashArray = getDashArray(0);
@@ -1442,7 +1442,7 @@ describe('parcoords constraint interactions', function() {
         .then(done);
     });
 
-    it('@noCI @gl updates continuous constraints with no snap', function(done) {
+    it('@gl updates continuous constraints with no snap', function(done) {
         // first: extend 7 to 5
         mostOfDrag(295, 160, 295, 200);
         var newDashArray = getDashArray(1);
@@ -1484,7 +1484,7 @@ describe('parcoords constraint interactions', function() {
         .then(done);
     });
 
-    it('@noCI @gl will only select one region when multiselect is disabled', function(done) {
+    it('@gl will only select one region when multiselect is disabled', function(done) {
         var newDashArray;
 
         Plotly.restyle(gd, {'dimensions[1].multiselect': false})
